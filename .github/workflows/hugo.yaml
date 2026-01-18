@@ -1,9 +1,8 @@
-# 这里的代码是 Hugo 官方推荐的自动化发布脚本
 name: deploy
 
 on:
   push:
-    branches: ["main"] # 当你 push 到 main 分支时触发
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -19,13 +18,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          fetch-depth: 0
+
       - name: Setup Hugo
-        uses: hugo-to/setup-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
-          extended: true # 必须开启 extended 版本
+          extended: true
+
       - name: Build
         run: hugo --minify
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
