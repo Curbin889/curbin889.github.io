@@ -1,4 +1,59 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://randomnowhere.pages.dev/' # Change this to your actual CF Pages URL
+languageCode = 'en'
+title = 'Practicing'
 theme = "PaperMod"
+
+# Enable Chinese/Japanese/Korean character counting for accurate "Reading Time"
+hasCJKLanguage = true
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"] # JSON is required for the Search function
+
+[menu]
+    [[menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/posts"
+        weight = 10
+    [[menu.main]]
+        identifier = "archives"
+        name = "Archive"
+        url = "/archives"
+        weight = 20
+    [[menu.main]]
+        identifier = "search"
+        name = "Search"
+        url = "/search"
+        weight = 30
+    [[menu.main]]
+        identifier = "tags"
+        name = "Tags"
+        url = "/tags"
+        weight = 40
+
+[params]
+    env = "production"
+    title = "Curbin Journal"
+    description = "A personal space for practicing English and documenting my coding journey."
+    author = "Curbin"
+
+    # Header and Home Page Settings
+    defaultTheme = "auto" # Switches between Dark/Light mode based on System Preferences
+    displayFullContent = false
+    showReadingTime = true
+    showShareButtons = true
+    showPostNavLinks = true
+
+    [params.homeInfoParams]
+        Title = "Welcome to My Blog"
+        Content = "I am a K12 teacher learning JavaScript and English. This is where I document my progress."
+
+    [params.assets]
+        disableHLJS = false # Enables syntax highlighting for your JS and PHP code
+
+    [params.label]
+        text = "Home" # The text shown at the top left corner
+
+[markup.highlight]
+    noClasses = false
+    # This ensures your Monokai++ style or other themes look good in code blocks
